@@ -1,5 +1,7 @@
 {
     "files.associations": {
         "*.html": "jinja-html"
-    }
+    },
+    "python.pythonPath": "/Users/a3/dv/NovelNoises/env/bin/python",
+
 }
