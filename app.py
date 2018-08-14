@@ -4,9 +4,9 @@ app = Flask(__name__)
 # app.config.from_pyfile('config.py')
 
 @app.route('/')
-@app.route('/home')
-def home():
-    return render_template('index.html', title='Home')
+@app.route('/index')
+def index():
+    return render_template('index.html', title='Index')
 
 @app.route('/about')
 def about():
