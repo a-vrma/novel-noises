@@ -1,2 +1,4 @@
 # python virtual environment
 env/*
+# bulma
+stylesheets/bulma-0.7.1/*
