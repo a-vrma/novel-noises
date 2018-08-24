@@ -10,25 +10,26 @@
   <meta name="author" content="Aman Verma">
   <title>{% block page_title %}{% endblock %} - NovelNoises</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" media="screen" href="{{ url_for('static', filename='css/mytheme.min.css') }}">
+  <link rel="stylesheet" media="screen" href="{{ url_for('static', filename='css/mytheme.min.css') }}">
   <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-  {% endblock %}
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+    crossorigin="anonymous"> {% endblock %}
 </head>
 
 <body>
   <nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
+    <!-- Ingenious strat to get a full screen-width search bar -->
+    <div class="navbar-brand" style="flex-grow: 1; flex-shrink: 1">
       <a class="navbar-item" href="{{ url_for('index') }}">
         <img src="{{ url_for('static', filename='img/logo-mini.png')}}" alt="NovelNoises logo" width="28" height="28">
         <!-- Try to make the logo scale better here -->
       </a>
-      <div class="navbar-item">
-        <div class="field has-addons">
-          <div class="control">
+      <div class="navbar-item is-expanded">
+        <div class="field has-addons" style="flex-grow: 1;">
+          <div class="control" style="flex-grow: 1;">
             <input class="input is-primary is-shadowless is-radiusless" type="text" placeholder="Search database...">
           </div>
-          <div class="control">
+          <div class="control" style="flex-grow: 0;">
             <a class="button is-primary is-shadowless is-radiusless">
               <span class="icon">
                 <i class="fas fa-search"></i>
@@ -43,9 +44,7 @@
         <span aria-hidden="true"></span>
       </a>
     </div>
-    <div class="navbar-menu" id="navMenu">
-      <div class="navbar-start">
-      </div>
+    <div class="navbar-menu" id="navMenu" style="flex-grow: 0;">
       <div class="navbar-end">
         <a class="navbar-item" href="{{ url_for('about') }}">
           About
@@ -80,7 +79,7 @@
     </div>
   </footer>
 
-  <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 
 </html>
