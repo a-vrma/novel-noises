@@ -1,7 +1,9 @@
 from flask import Flask, render_template
+from flask_htmlmin import HTMLMIN
 
 app = Flask(__name__)
 # app.config.from_pyfile('config.py')
+HTMLMIN(app)
 
 @app.route('/')
 @app.route('/index')

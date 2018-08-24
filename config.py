@@ -1,0 +1,1 @@
+MINIFY_PAGE = True
