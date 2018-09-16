@@ -3,5 +3,9 @@
         // "*.html": "jinja-html"
     },
     "python.pythonPath": "/Users/a3/dv/NovelNoises/env/bin/python",
+    "python.linting.pylintArgs": [
+        "--enable=F,E,W,R",
+        "--disable=C,W1618,W1632,W0613,E1101"
+    ],
 
 }
