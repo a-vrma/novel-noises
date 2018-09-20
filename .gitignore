@@ -1,4 +1,15 @@
-# python virtual environment
+### python ###
 env/*
-# bulma
+.ropeproject
+__pycache__/
+*.py[cod]
+*$py.class
+*.sqlite
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+### bulma ###
 stylesheets/bulma-0.7.1/*
