@@ -1,0 +1,35 @@
+<nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
+<!-- Ingenious strat to get a full screen-width search bar -->
+<div class="navbar-brand" style="flex-grow: 1; flex-shrink: 1">
+    <a class="navbar-item" href="{{ url_for('index') }}">
+    <img src="{{ url_for('static', filename='img/logo-mini.png')}}" alt="NovelNoises logo" width="28" height="28">
+    <!-- Try to make the logo scale better here -->
+    </a>
+    <div class="navbar-item is-expanded">
+    <div class="field has-addons" style="flex-grow: 1;">
+        <div class="control" style="flex-grow: 1;">
+        <input class="input is-primary is-shadowless is-radiusless" type="text" placeholder="Search database...">
+        </div>
+        <div class="control" style="flex-grow: 0;">
+        <a class="button is-primary is-shadowless is-radiusless">
+            <span class="icon">
+            <i class="fas fa-search"></i>
+            </span>
+        </a>
+        </div>
+    </div>
+    </div>
+    <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+    </a>
+</div>
+<div class="navbar-menu" id="navMenu" style="flex-grow: 0;">
+    <div class="navbar-end">
+    <a class="navbar-item" href="{{ url_for('about') }}">
+        About
+    </a>
+    </div>
+</div>
+</nav>

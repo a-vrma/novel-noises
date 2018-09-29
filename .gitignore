@@ -12,4 +12,4 @@ __pycache__/
 !.vscode/launch.json
 !.vscode/extensions.json
 ### bulma ###
-stylesheets/bulma-0.7.1/*
+static/sass/bulma-0.7.1/

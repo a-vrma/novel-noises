@@ -17,69 +17,10 @@
 </head>
 
 <body>
-  <nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
-    <!-- Ingenious strat to get a full screen-width search bar -->
-    <div class="navbar-brand" style="flex-grow: 1; flex-shrink: 1">
-      <a class="navbar-item" href="{{ url_for('index') }}">
-        <img src="{{ url_for('static', filename='img/logo-mini.png')}}" alt="NovelNoises logo" width="28" height="28">
-        <!-- Try to make the logo scale better here -->
-      </a>
-      <div class="navbar-item is-expanded">
-        <div class="field has-addons" style="flex-grow: 1;">
-          <div class="control" style="flex-grow: 1;">
-            <input class="input is-primary is-shadowless is-radiusless" type="text" placeholder="Search database...">
-          </div>
-          <div class="control" style="flex-grow: 0;">
-            <a class="button is-primary is-shadowless is-radiusless">
-              <span class="icon">
-                <i class="fas fa-search"></i>
-              </span>
-            </a>
-          </div>
-        </div>
-      </div>
-      <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
-    </div>
-    <div class="navbar-menu" id="navMenu" style="flex-grow: 0;">
-      <div class="navbar-end">
-        <a class="navbar-item" href="{{ url_for('about') }}">
-          About
-        </a>
-      </div>
-    </div>
-  </nav>
+  {% include 'nav.html' %}
   {% block content %}
   {% endblock %}
-  <footer class="footer is-small" style="align-items: center;">
-    <div class="has-text-centered">
-      <div class="copyright">
-        Copyright<span class="icon"><i class="far fa-copyright"></i></span><span id="year">2018</span>
-        by <a class="is-link" href="https://github.com/aaether32323">aaether32323</a>
-      </div>
-
-      <div class="made-with">
-        <p>
-          Made with
-          <a href="https://bulma.io">
-            <b>Bulma</b>,
-          </a>
-          <a href="http://flask.pocoo.org">
-            <b>Flask</b>,
-          </a>
-          and
-          <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">
-            <b>vanilla Javascript</b>.
-          </a>
-        </p>
-      </div>
-    </div>
-  </footer>
-
-  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  {% include 'footer.html' %}
 </body>
 
 </html>
