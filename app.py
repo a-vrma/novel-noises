@@ -8,6 +8,8 @@ app = Flask(__name__)
 app.config.from_pyfile("config.py")
 HTMLMIN(app)
 db = SQLAlchemy(app)
+app.jinja_env.lstrip_blocks = True
+app.jinja_env.trim_blocks = True
 
 
 class Book(db.Model):
@@ -18,7 +20,7 @@ class Book(db.Model):
     reccs = db.relationship("Recommendation", backref="book", lazy=True)
 
     def __repr__(self):
-        return f"Book({self.isbn}, '{self.title}', '{self.author}')"
+        return f"Book|{self.isbn}, '{self.title}', '{self.author}'|"
 
 
 class Recommendation(db.Model):
@@ -28,7 +30,7 @@ class Recommendation(db.Model):
     book_id = db.Column(db.Integer, db.ForeignKey("book.id"), nullable=False)
 
     def __repr__(self):
-        return f"Post('{self.book_id}', '{self.date_posted}', '{self.content}')"
+        return f"Post|'{self.book_id}', '{self.date_posted}', '{self.content}'|"
 
 
 # error handling
