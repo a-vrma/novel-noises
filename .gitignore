@@ -13,4 +13,4 @@ __pycache__/
 !.vscode/extensions.json
 ### bulma ###
 static/sass/bulma-0.7.1/
-static/css/*.min.css
+static/css/*min*

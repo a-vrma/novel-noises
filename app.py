@@ -2,14 +2,25 @@ from datetime import datetime
 from flask import Flask, render_template
 from flask_htmlmin import HTMLMIN
 from flask_sqlalchemy import SQLAlchemy
-
+from subprocess import call  # might want to get rid of this for prod
 
 app = Flask(__name__)
 app.config.from_pyfile("config.py")
 HTMLMIN(app)
 db = SQLAlchemy(app)
+# Jinja options
 app.jinja_env.lstrip_blocks = True
 app.jinja_env.trim_blocks = True
+# Compile sass. Trying to get python libsass to correctly make a sourcemap
+# is more work than necessary
+call(
+    [
+        "sass",
+        "static/sass/mytheme.scss:static/css/mytheme-min.css",
+        "--style",
+        "compressed",
+    ]
+)
 
 
 class Book(db.Model):
