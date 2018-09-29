@@ -9,3 +9,4 @@ while reading the book.
 * [ ] Get a search working.
 * [ ] Add a cute pic to 404 and 413 page.
 * [ ] Browse page.
+* [ ] Add dropdown for search
