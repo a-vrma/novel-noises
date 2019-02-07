@@ -1,5 +1,5 @@
 ### python ###
-env/*
+.venv/
 .ropeproject
 __pycache__/
 *.py[cod]

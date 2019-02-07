@@ -2,9 +2,5 @@
     "files.associations": {
         "*.html": "jinja-html"
     },
-    "python.pythonPath": "${workspaceFolder}/env/bin/python",
-    "python.linting.pylintArgs": [
-        "--disable=W1618,W1632,W0613,E1101"
-    ],
-
+    "python.pythonPath": "${workspaceFolder}/.venv/bin/python",
 }
