@@ -1,6 +1,6 @@
 # Novel Noises
 
-A database of books and music that are related.
+A database of books and music that are related. Unfinished.
 
 ## Todo
 
