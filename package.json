@@ -10,7 +10,6 @@
     "license": "MIT",
     "dependencies": {
         "acorn": "^6.1.0",
-        "cssnano": "^4.1.10",
         "mkdirp": "^0.5.1",
         "node-sass": "^4.11.0",
         "uncss": "^0.16.2"

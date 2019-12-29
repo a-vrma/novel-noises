@@ -1,21 +1,20 @@
 // const glob = require('glob');
+// const uncss = require('uncss');
 const fs = require('fs');
-// TODO: figure out postcss
-const uncss = require('uncss');
-const cssnano = require('cssnano');
+const csso = require('csso');
 const sass = require('node-sass');
 const mkdirp = require('mkdirp');
 
-const cssdir = 'static/css';
-const scssdir = 'static/sass';
-const srcs = ['mytheme'];
+const cssdir = 'out/css';
+const scssdir = 'lib/simple/styles';
+const srcs = ['everything', 'code'];
 
-function basenameToScss(bn) {
-  return `${scssdir}/${bn}.scss`;
+function basenameToScss(dir, bn) {
+  return `${dir}/${bn}.scss`;
 }
 
-function basenameToCss(bn) {
-  return `${cssdir}/${bn}.css`;
+function basenameToCss(dir, bn) {
+  return `${dir}/${bn}.css`;
 }
 
 function errorHandler(err, place) {
@@ -23,7 +22,7 @@ function errorHandler(err, place) {
   process.exitCode = 1;
 }
 
-function makeMinified(css, file) {
+function makeMinifiedAndWrite(css, file) {
   let minified;
   try {
     minified = csso.minify(css);
@@ -32,7 +31,7 @@ function makeMinified(css, file) {
     return;
   }
   // write the minified css.
-  fs.writeFile(basenameToCss(file), minified.css, (e) => {
+  fs.writeFile(basenameToCss(cssdir, file), minified.css, (e) => {
     if (e) errorHandler(e, 'writeFile');
   });
 }
@@ -40,7 +39,7 @@ function makeMinified(css, file) {
 function makeCss(file) {
   sass.render(
     {
-      file: basenameToScss(file),
+      file: basenameToScss(scssdir, file),
       outputStyle: 'expanded',
     },
     (err, result) => {
@@ -49,7 +48,7 @@ function makeCss(file) {
         return;
       }
       // now try to minify.
-      makeMinified(result.css, file);
+      makeMinifiedAndWrite(result.css, file);
     },
   );
 }
@@ -60,7 +59,5 @@ mkdirp(cssdir, (err) => {
     errorHandler(err, 'mkdirp');
     return;
   }
-  srcs.forEach((file) => {
-    makeCss(file);
-  });
+  srcs.map(makeCss);
 });
